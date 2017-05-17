@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<bean id="masons" class="Castle.Masons">
+    <lookup-method name="makeGates" bean="gates"></lookup-method>
+    <lookup-method name="makeHill" bean="hill"></lookup-method>
+    <lookup-method name="makeWall" bean="wall"></lookup-method>
+    <lookup-method name="makeBarraks" bean="barraks"></lookup-method>
+</bean>
+    <bean id="wall" class="Castle.Wall">
+        <property name="wall" value="3 метра толщиной,15 метров толщиной"></property>
+    </bean>
+    <bean id="hill" class="Castle.Hill">
+        <property name="hill" value="3 метра высотой"></property>
+    </bean>
+    <bean id="gates" class="Castle.Gates">
+        <property name="gates" value="25/5"></property>
+    </bean>
+    <bean id="barraks" class="Castle.Barraks">
+        <lookup-method name="makeArchers" bean="archers"></lookup-method>
+        <lookup-method name="makeKnight" bean="knight"></lookup-method>
+        <lookup-method name="makeSpearman" bean="spierman"></lookup-method>
+    </bean>
+    <bean id="archers" class="Castle.Archers">
+        <property name="people" value="200"></property>
+        <property name="arrow" value="4000"></property>
+    </bean>
+    <bean id="spierman" class="Castle.Spierman">
+        <property name="people" value="150"></property>
+    </bean>
+    <bean id="knight" class="Castle.Knight">
+        <property name="people" value="20"></property>
+    </bean>
+</beans>
